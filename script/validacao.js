@@ -1,3 +1,4 @@
+
 function verificaChute(chute){
     const numero = +chute
 
@@ -9,13 +10,16 @@ function verificaChute(chute){
         return elementoChute.innerHTML += `<div> Valor Inválido, diga um número entre ${menorValor} e ${maiorValor} </div>`
     }if(numero === numeroSecreto){
         return document.body.innerHTML = `<p> Você acertou o numero! Parabéns.</p>
-                                        <h1> o Número secreto era <strong> ${numeroSecreto}</strong>.</h1>` 
+                                        <h1> o Número secreto era <strong> ${numeroSecreto}</strong>.</h1>
+                                        <button id="botao"> Gostaria de jogar novamente? Clique aqui </button>`
+                                            
+                                        
     }
     else{
         if(numero < numeroSecreto){
-        return elementoChute.innerHTML += `<div> o Número Secreto é Maior</div>`
+        return elementoChute.innerHTML += `<div> o Número Secreto é Maior <i class="fa-solid fa-up-long"></i></div>`
         }if(numero > numeroSecreto){
-        return elementoChute.innerHTML += `<div> o Número Secreto é Menor</div>`   
+        return elementoChute.innerHTML += `<div> o Número Secreto é Menor <i class="fa-solid fa-down-long"></i></div>`   
         }
     }
     
@@ -29,3 +33,7 @@ function MaiorMenor(numero) {
 function VerificaNumero(numero) {
     return Number.isNaN(numero)
 }
+
+document.body.addEventListener('click' , e =>{if (e.target.id == "botao"){
+    window.location.reload()
+}} )
